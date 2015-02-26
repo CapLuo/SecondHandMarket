@@ -1,0 +1,37 @@
+<resources>
+
+    <!-- all title -->
+    <dimen name="title_height">60dp</dimen>
+    <dimen name="title_size">21sp</dimen>
+
+    <!-- home page -->
+    <dimen name="home_title_marginTop">8dp</dimen>
+    <dimen name="home_title_marginLeft">10dp</dimen>
+    <dimen name="home_title_exit_length">320dp</dimen>
+    <dimen name="home_title_show_line_top">2dp</dimen>
+
+    <!-- classify page -->
+    <dimen name="classify_line_height">2dp</dimen>
+    <dimen name="classify_image_width">72dp</dimen>
+    <dimen name="classify_title_size">19sp</dimen>
+    <dimen name="classify_description_size">16sp</dimen>
+    <dimen name="classify_margin_left">10dp</dimen>
+    <dimen name="classify_margin_top">8dp</dimen>
+
+    <!-- center page -->
+    <dimen name="center_settings_right">10dp</dimen>
+    <dimen name="center_settings_user_width">128dp</dimen>
+    <dimen name="center_settings_navigation">19sp</dimen>
+    <dimen name="center_settings_padding_top">10dp</dimen>
+    <dimen name="center_settings_padding_right">15dp</dimen>
+    <dimen name="center_settings_margin">2dp</dimen>
+
+    <!-- settings page -->
+    <dimen name="settings_textline_margintop">15dp</dimen>
+    <dimen name="settings_textline_marginleft">20dp</dimen>
+    <dimen name="settings_textline_height">1dp</dimen>
+    <dimen name="settings_textsize">19sp</dimen>
+    <dimen name="settings_area_high">20dp</dimen>
+
+    <!-- release page -->
+    <dimen name="release_line_height">2dp</dimen></resources>

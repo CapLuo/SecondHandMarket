@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SecondHandMarket</string>
+
+    <string name="title_app">校园二手市场</string>
+    <string name="title_classify">分类</string>
+    <string name="title_center">我的</string>
+    <string name="title_release">发布</string>
+    <string name="title_message">消息</string>
+    <string name="title_home">首页</string>
+
+    <string name="title_bar_search">搜索</string>
+    <string name="title_chose_school">选择学校</string>
+
+    <string name="classify_title">分类浏览</string>
+    <string name="item_classify_description">分类栏</string>
+
+    <string name="message_title">消息</string>
+
+    <string name="center_title">我的</string>
+    <string name="center_user_name">用户名:</string>
+    <string name="center_credit">信用等级:</string>
+    <string name="center_sell">在售</string>
+    <string name="center_selled">已售出</string>
+    <string name="center_buy">已买到</string>
+    <string name="center_favorites">收藏夹</string>
+
+    <string name="settings_title">设置</string>
+    <string name="settings_about">关于</string>
+    <string name="settings_feedback">意见反馈</string>
+    <string name="settings_help">帮助</string>
+    <string name="settings_clear">清除缓存</string>
+    <string name="settings_message_remind">消息提醒设置</string>
+    <string name="settings_sign_out">注销登录</string>
+
+    <string name="release_title">发布物品</string>
+</resources>
