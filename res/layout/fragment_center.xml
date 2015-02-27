@@ -38,6 +38,7 @@
         android:orientation="horizontal" >
 
         <ImageView
+            android:id="@+id/center_user_photo"
             android:layout_width="@dimen/center_settings_user_width"
             android:layout_height="@dimen/center_settings_user_width"
             android:contentDescription="@drawable/user"
