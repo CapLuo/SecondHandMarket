@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/title_height" >
+
+        <ImageView
+            android:id="@+id/remind_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/settings_textline_marginleft"
+            android:contentDescription="@drawable/back"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:text="@string/settings_message_remind"
+            android:textSize="@dimen/title_size" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/settings_textline_height"
+        android:background="@color/light_gray" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/remind_goods_bussiness"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/settings_textline_margintop"
+            android:paddingLeft="@dimen/settings_textline_marginleft"
+            android:paddingRight="@dimen/settings_textline_marginleft"
+            android:paddingTop="@dimen/settings_textline_margintop" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/remind_goods_business"
+                android:textSize="@dimen/settings_textsize" />
+
+            <ToggleButton
+                android:id="@+id/remind_goods_bussiness_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/toggle_button_background"
+                android:checked="false"
+                android:text=""
+                android:textOff=""
+                android:textOn="" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/settings_textline_height"
+            android:background="@color/light_gray" />
+
+        <RelativeLayout
+            android:id="@+id/remind_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/settings_textline_margintop"
+            android:paddingLeft="@dimen/settings_textline_marginleft"
+            android:paddingRight="@dimen/settings_textline_marginleft"
+            android:paddingTop="@dimen/settings_textline_margintop" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/remind_message"
+                android:textSize="@dimen/settings_textsize" />
+
+            <ToggleButton
+                android:id="@+id/remind_message_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/toggle_button_background"
+                android:checked="false"
+                android:text=""
+                android:textOff=""
+                android:textOn="" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/settings_textline_height"
+            android:background="@color/light_gray" />
+
+        <RelativeLayout
+            android:id="@+id/remind_hot_goods"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/settings_textline_margintop"
+            android:paddingLeft="@dimen/settings_textline_marginleft"
+            android:paddingRight="@dimen/settings_textline_marginleft"
+            android:paddingTop="@dimen/settings_textline_margintop" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/remind_hot_goods"
+                android:textSize="@dimen/settings_textsize" />
+
+            <ToggleButton
+                android:id="@+id/remind_hot_goods_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/toggle_button_background"
+                android:checked="false"
+                android:text=""
+                android:textOff=""
+                android:textOn="" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/settings_textline_height"
+            android:background="@color/light_gray" />
+
+        <RelativeLayout
+            android:id="@+id/remind_custom_lable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/settings_textline_margintop"
+            android:paddingLeft="@dimen/settings_textline_marginleft"
+            android:paddingRight="@dimen/settings_textline_marginleft"
+            android:paddingTop="@dimen/settings_textline_margintop" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/remind_custom_lable"
+                android:textSize="@dimen/settings_textsize" />
+
+            <ToggleButton
+                android:id="@+id/remind_custom_lable_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/toggle_button_background"
+                android:checked="false"
+                android:text=""
+                android:textOff=""
+                android:textOn=""
+                android:visibility="visible" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/settings_textline_height"
+            android:background="@color/light_gray" />
+
+        <RelativeLayout
+            android:id="@+id/remind_custom_lable_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/settings_textline_margintop"
+            android:layout_marginLeft="@dimen/settings_textline_marginleft"
+            android:layout_marginRight="@dimen/settings_textline_marginleft"
+            android:layout_marginTop="@dimen/settings_textline_margintop"
+            android:background="@drawable/edit_background"
+            android:visibility="invisible" >
+
+            <TextView
+                android:id="@+id/remind_custom_lable_ok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="@string/remind_custom_lable_ok"
+                android:textSize="@dimen/settings_textsize" />
+
+            <EditText
+                android:id="@+id/remind_custom_lable_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/settings_textline_marginleft"
+                android:layout_toLeftOf="@id/remind_custom_lable_ok"
+                android:background="@android:color/transparent"
+                android:hint="@string/remind_custom_lable_hint"
+                android:textSize="@dimen/settings_textsize" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

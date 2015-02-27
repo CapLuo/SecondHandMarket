@@ -8,6 +8,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
 import com.secondhand.market.R;
+import com.secondhand.market.SettingActivity;
 
 public class FragmentSettingMian extends Fragment implements OnClickListener {
 
@@ -20,6 +21,12 @@ public class FragmentSettingMian extends Fragment implements OnClickListener {
 	private View mFeedback;
 	private View mClear;
 	private View mSignOut;
+
+	private SettingActivity mActivity;
+
+	public FragmentSettingMian(SettingActivity activity) {
+		mActivity = activity;
+	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -60,15 +67,19 @@ public class FragmentSettingMian extends Fragment implements OnClickListener {
 	public void onClick(View view) {
 		switch (view.getId()) {
 		case R.id.settings_back:
-			getActivity().onBackPressed();
+			mActivity.onBackPressed();
 			break;
 		case R.id.settings_message_remind:
+			mActivity.setFragmentChoice(1);
 			break;
 		case R.id.settings_about:
+			mActivity.setFragmentChoice(2);
 			break;
 		case R.id.settings_help:
+			mActivity.setFragmentChoice(3);
 			break;
 		case R.id.settings_feedback:
+			mActivity.setFragmentChoice(4);
 			break;
 		case R.id.settings_clear:
 			break;
