@@ -6,6 +6,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
 import com.secondhand.market.view.FragmentAbout;
+import com.secondhand.market.view.FragmentFeedback;
+import com.secondhand.market.view.FragmentHelp;
 import com.secondhand.market.view.FragmentSettingMessageRemind;
 import com.secondhand.market.view.FragmentSettingMian;
 
@@ -17,6 +19,8 @@ public class SettingActivity extends FragmentActivity {
 	private FragmentSettingMian mSettingMain;
 	private FragmentSettingMessageRemind mMessageRemind;
 	private FragmentAbout mAbout;
+	private FragmentHelp mHelp;
+	private FragmentFeedback mFeedback;
 
 	private int mCurrentFragment;
 
@@ -53,8 +57,16 @@ public class SettingActivity extends FragmentActivity {
 			mTransaction.replace(R.id.content_main, mAbout);
 			break;
 		case 3:
+			if (mHelp == null) {
+				mHelp = new FragmentHelp();
+			}
+			mTransaction.replace(R.id.content_main, mHelp);
 			break;
 		case 4:
+			if (mFeedback == null) {
+				mFeedback = new FragmentFeedback();
+			}
+			mTransaction.replace(R.id.content_main, mFeedback);
 			break;
 		case 0:
 		default:

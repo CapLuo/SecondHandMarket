@@ -95,11 +95,6 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/settings_textline_height"
             android:background="@color/light_gray" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-        </RelativeLayout>
     </LinearLayout>
 
 </LinearLayout>
