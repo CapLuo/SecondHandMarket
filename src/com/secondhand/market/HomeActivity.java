@@ -1,17 +1,17 @@
 package com.secondhand.market;
 
-import com.secondhand.market.view.FragmentCenter;
-import com.secondhand.market.view.FragmentClassify;
-import com.secondhand.market.view.FragmentHome;
-import com.secondhand.market.view.FragmentMessage;
-import com.secondhand.market.view.FragmentRelease;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.view.View.OnClickListener;
+
+import com.secondhand.market.view.FragmentCenter;
+import com.secondhand.market.view.FragmentClassify;
+import com.secondhand.market.view.FragmentHome;
+import com.secondhand.market.view.FragmentMessage;
 
 public class HomeActivity extends FragmentActivity implements OnClickListener {
 
@@ -21,7 +21,6 @@ public class HomeActivity extends FragmentActivity implements OnClickListener {
 	private FragmentHome mHome;
 	private FragmentClassify mClassify;
 	private FragmentCenter mCenter;
-	private FragmentRelease mRelease;
 	private FragmentMessage mMessage;
 
 	@Override
@@ -55,10 +54,9 @@ public class HomeActivity extends FragmentActivity implements OnClickListener {
 			mTransaction.replace(R.id.content_main, mClassify);
 			break;
 		case 2:
-			if (mRelease == null) {
-				mRelease = new FragmentRelease();
-			}
-			mTransaction.replace(R.id.content_main, mRelease);
+			Intent intent = new Intent();
+			intent.setClass(this, ReleaseActivity.class);
+			this.startActivity(intent);
 			break;
 		case 3:
 			if (mCenter == null) {

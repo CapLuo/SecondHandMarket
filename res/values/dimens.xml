@@ -34,4 +34,9 @@
     <dimen name="settings_area_high">20dp</dimen>
 
     <!-- release page -->
-    <dimen name="release_line_height">2dp</dimen></resources>
+    <dimen name="release_line_height">2dp</dimen>
+    <dimen name="release_textline_margintop">15dp</dimen>
+    <dimen name="release_textline_marginleft">20dp</dimen>
+    <dimen name="release_textsize">19sp</dimen>
+
+</resources>

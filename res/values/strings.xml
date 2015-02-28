@@ -3,6 +3,8 @@
 
     <string name="app_name">SecondHandMarket</string>
 
+    <string name="next_step">下一步</string>
+
     <string name="title_app">校园二手市场</string>
     <string name="title_classify">分类</string>
     <string name="title_center">我的</string>
@@ -45,4 +47,7 @@
     <string name="about_contact_us">联系我们</string>
 
     <string name="release_title">发布物品</string>
+    <string name="release_step_one">发布宝贝第一步:</string>
+    <string name="release_insert_pic">插入物品图片</string>
+
 </resources>

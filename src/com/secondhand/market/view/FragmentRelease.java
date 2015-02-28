@@ -1,30 +1,21 @@
 package com.secondhand.market.view;
 
-import com.secondhand.market.R;
-
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
-//发布页面
 public class FragmentRelease extends Fragment {
 
-	private View mContentView;
+	protected ChoiceFragmentInterface mChoice = new ChoiceFragmentInterface() {
 
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		if (mContentView == null) {
-			mContentView = inflater.inflate(R.layout.fragment_release, container,
-					false);
+		@Override
+		public void setChoice() {
 		}
+	};
 
-		if (mContentView.getParent() != null) {
-			((ViewGroup) mContentView.getParent()).removeView(mContentView);
-		}
+	public interface ChoiceFragmentInterface {
+		public void setChoice();
+	}
 
-		return mContentView;
+	public void setChoiceFragmentInterface(ChoiceFragmentInterface inface) {
+		mChoice = inface;
 	}
 }
