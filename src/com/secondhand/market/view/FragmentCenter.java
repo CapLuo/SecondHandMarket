@@ -3,6 +3,7 @@ package com.secondhand.market.view;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -43,6 +44,7 @@ public class FragmentCenter extends Fragment implements OnClickListener {
 		}
 
 		initView();
+		initData();
 		return mContentView;
 	}
 
@@ -68,6 +70,10 @@ public class FragmentCenter extends Fragment implements OnClickListener {
 		mGoodsList = (ListView) mContentView.findViewById(R.id.classify_list);
 	}
 
+	private void initData() {
+		mSell.setBackgroundResource(R.drawable.choice_tab_bg);
+	}
+
 	@Override
 	public void onClick(View view) {
 		switch (view.getId()) {
@@ -79,15 +85,46 @@ public class FragmentCenter extends Fragment implements OnClickListener {
 		case R.id.center_user_photo:
 			break;
 		case R.id.center_sell:
+			choiceTabBackground(view);
 			break;
 		case R.id.center_selled:
+			choiceTabBackground(view);
 			break;
 		case R.id.center_buy:
+			choiceTabBackground(view);
 			break;
 		case R.id.center_favorites:
+			choiceTabBackground(view);
 			break;
 		default:
 			break;
+		}
+	}
+
+	private void choiceTabBackground(View view) {
+		if (view.getId() == R.id.center_sell) {
+			mSell.setBackgroundResource(R.drawable.choice_tab_bg);
+		} else {
+			mSell.setBackgroundColor(getActivity().getResources().getColor(
+					android.R.color.transparent));
+		}
+		if (view.getId() == R.id.center_selled) {
+			mSelled.setBackgroundResource(R.drawable.choice_tab_bg);
+		} else {
+			mSelled.setBackgroundColor(getActivity().getResources().getColor(
+					android.R.color.transparent));
+		}
+		if (view.getId() == R.id.center_buy) {
+			mBuy.setBackgroundResource(R.drawable.choice_tab_bg);
+		} else {
+			mBuy.setBackgroundColor(getActivity().getResources().getColor(
+					android.R.color.transparent));
+		}
+		if (view.getId() == R.id.center_favorites) {
+			mFavorites.setBackgroundResource(R.drawable.choice_tab_bg);
+		} else {
+			mFavorites.setBackgroundColor(getActivity().getResources()
+					.getColor(android.R.color.transparent));
 		}
 	}
 }
