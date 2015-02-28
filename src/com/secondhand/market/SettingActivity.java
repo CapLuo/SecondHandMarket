@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
+import com.secondhand.market.view.FragmentAbout;
 import com.secondhand.market.view.FragmentSettingMessageRemind;
 import com.secondhand.market.view.FragmentSettingMian;
 
@@ -15,6 +16,7 @@ public class SettingActivity extends FragmentActivity {
 
 	private FragmentSettingMian mSettingMain;
 	private FragmentSettingMessageRemind mMessageRemind;
+	private FragmentAbout mAbout;
 
 	private int mCurrentFragment;
 
@@ -45,6 +47,10 @@ public class SettingActivity extends FragmentActivity {
 			mTransaction.replace(R.id.content_main, mMessageRemind);
 			break;
 		case 2:
+			if (mAbout == null) {
+				mAbout = new FragmentAbout();
+			}
+			mTransaction.replace(R.id.content_main, mAbout);
 			break;
 		case 3:
 			break;

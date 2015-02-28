@@ -41,5 +41,8 @@
     <string name="remind_custom_lable_hint">请输入关键词</string>
     <string name="remind_custom_lable_ok">确定</string>
 
+    <string name="about_check_update">检查更新</string>
+    <string name="about_contact_us">联系我们</string>
+
     <string name="release_title">发布物品</string>
 </resources>
