@@ -11,4 +11,5 @@ public class FieldUtil {
 	public static final String CUSTOM_LABLE = "custom_lable"; // 自订关键词通知
 	public static final String CUSTOM_LABLE_WORD = "custom_lable_word";// 自订关键词
 
+	public static final String Link_API = "http://fleastreet.chinacloudsites.cn/api";
 }

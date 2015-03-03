@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import com.secondhand.market.R;
+import com.secondhand.util.ControllerFromNet;
 
 public class FragmentLogin extends FragmentInterfaceChoice implements
 		OnClickListener {
@@ -54,7 +55,8 @@ public class FragmentLogin extends FragmentInterfaceChoice implements
 		mLogin.setOnClickListener(this);
 
 		mUser = (EditText) mContentView.findViewById(R.id.login_user_edittext);
-		mPassword = (EditText) mContentView.findViewById(R.id.login_password_edittext);
+		mPassword = (EditText) mContentView
+				.findViewById(R.id.login_password_edittext);
 	}
 
 	private void initData() {
@@ -71,6 +73,7 @@ public class FragmentLogin extends FragmentInterfaceChoice implements
 			getActivity().onBackPressed();
 			break;
 		case R.id.login_button:
+			ControllerFromNet.appLoginOut();
 			break;
 		default:
 			break;

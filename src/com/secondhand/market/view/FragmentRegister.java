@@ -1,6 +1,11 @@
 package com.secondhand.market.view;
 
+import java.io.UnsupportedEncodingException;
+
+import org.json.JSONException;
+
 import com.secondhand.market.R;
+import com.secondhand.util.ControllerFromNet;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -53,8 +58,10 @@ public class FragmentRegister extends FragmentInterfaceChoice implements
 		mRegister = mContentView.findViewById(R.id.register_button);
 		mRegister.setOnClickListener(this);
 
-		mUser = (EditText) mContentView.findViewById(R.id.register_user_edittext);
-		mPassword = (EditText) mContentView.findViewById(R.id.register_password_edittext);
+		mUser = (EditText) mContentView
+				.findViewById(R.id.register_user_edittext);
+		mPassword = (EditText) mContentView
+				.findViewById(R.id.register_password_edittext);
 	}
 
 	private void initData() {
@@ -71,6 +78,13 @@ public class FragmentRegister extends FragmentInterfaceChoice implements
 			getActivity().onBackPressed();
 			break;
 		case R.id.register_button:
+			try {
+				ControllerFromNet.loginCreate(getActivity(), "1173280308@qq.com", "123456");
+			} catch (JSONException e) {
+				e.printStackTrace();
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
 			break;
 		default:
 			break;
