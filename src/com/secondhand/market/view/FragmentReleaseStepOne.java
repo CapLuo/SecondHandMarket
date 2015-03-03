@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 //发布页面
-public class FragmentReleaseStepOne extends FragmentRelease {
+public class FragmentReleaseStepOne extends FragmentInterfaceChoice {
 
 	private View mContentView;
 

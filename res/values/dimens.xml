@@ -39,4 +39,24 @@
     <dimen name="release_textline_marginleft">20dp</dimen>
     <dimen name="release_textsize">19sp</dimen>
 
+    <!-- login page -->
+    <dimen name="login_line_height">2dp</dimen>
+    <dimen name="login_layout_margin">20dp</dimen>
+    <dimen name="login_text_size">19sp</dimen>
+    <dimen name="login_edittext_margin">10dp</dimen>
+    <dimen name="login_textline_margintop">10dp</dimen>
+    <dimen name="login_textline_marginleft">20dp</dimen>
+    <dimen name="login_textregister_marginleft">8dp</dimen>
+    <dimen name="login_textregister_textsize">18sp</dimen>
+
+    <!-- register page -->
+    <dimen name="register_line_height">2dp</dimen>
+    <dimen name="register_layout_margin">20dp</dimen>
+    <dimen name="register_text_size">19sp</dimen>
+    <dimen name="register_edittext_margin">10dp</dimen>
+    <dimen name="register_textline_margintop">10dp</dimen>
+    <dimen name="register_textline_marginleft">20dp</dimen>
+    <dimen name="register_textlogin_marginleft">8dp</dimen>
+    <dimen name="register_textlogin_textsize">18sp</dimen>
+
 </resources>

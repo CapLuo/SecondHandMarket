@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.view.View.OnClickListener;
 
-import com.secondhand.market.view.FragmentRelease.ChoiceFragmentInterface;
+import com.secondhand.market.view.FragmentInterfaceChoice.ChoiceFragmentInterface;
 import com.secondhand.market.view.FragmentReleaseStepOne;
 
 public class ReleaseActivity extends FragmentActivity implements
@@ -57,7 +57,7 @@ public class ReleaseActivity extends FragmentActivity implements
 				mReleaseOne = new FragmentReleaseStepOne(
 						new ChoiceFragmentInterface() {
 							@Override
-							public void setChoice() {
+							public void setChoice(int flag) {
 								setChoiceFragment(1);
 							}
 						});

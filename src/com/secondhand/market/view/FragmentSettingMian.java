@@ -1,5 +1,6 @@
 package com.secondhand.market.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
+import com.secondhand.market.LoginActivity;
 import com.secondhand.market.R;
 import com.secondhand.market.SettingActivity;
 
@@ -84,6 +86,9 @@ public class FragmentSettingMian extends Fragment implements OnClickListener {
 		case R.id.settings_clear:
 			break;
 		case R.id.setting_sign_out:
+			Intent intent = new Intent();
+			intent.setClass(getActivity(), LoginActivity.class);
+			getActivity().startActivity(intent);
 			break;
 		default:
 			break;
