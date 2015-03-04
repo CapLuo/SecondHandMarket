@@ -54,7 +54,7 @@
             android:layout_marginLeft="@dimen/register_edittext_margin"
             android:background="@null"
             android:hint="@string/login_username"
-            android:inputType="text"
+            android:inputType="textEmailAddress"
             android:textSize="@dimen/login_text_size" />
     </LinearLayout>
 

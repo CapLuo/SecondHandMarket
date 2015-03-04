@@ -7,7 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import com.secondhand.market.FleastreetApplication;
 import com.secondhand.market.LoginActivity;
 import com.secondhand.market.R;
 import com.secondhand.market.SettingActivity;
@@ -22,9 +24,10 @@ public class FragmentSettingMian extends Fragment implements OnClickListener {
 	private View mHelp;
 	private View mFeedback;
 	private View mClear;
-	private View mSignOut;
+	private Button mSignOut;
 
 	private SettingActivity mActivity;
+	private FleastreetApplication mApp;
 
 	public FragmentSettingMian(SettingActivity activity) {
 		mActivity = activity;
@@ -61,8 +64,15 @@ public class FragmentSettingMian extends Fragment implements OnClickListener {
 		mFeedback.setOnClickListener(this);
 		mClear = mContentView.findViewById(R.id.settings_clear);
 		mClear.setOnClickListener(this);
-		mSignOut = mContentView.findViewById(R.id.setting_sign_out);
+		mSignOut = (Button) mContentView.findViewById(R.id.setting_sign_out);
 		mSignOut.setOnClickListener(this);
+
+		mApp = (FleastreetApplication) mActivity.getApplication();
+		if (mApp.getLogin()) {
+			mSignOut.setText(R.string.settings_sign_in);
+		} else {
+			mSignOut.setText(R.string.settings_sign_out);
+		}
 	}
 
 	@Override
@@ -86,9 +96,14 @@ public class FragmentSettingMian extends Fragment implements OnClickListener {
 		case R.id.settings_clear:
 			break;
 		case R.id.setting_sign_out:
-			Intent intent = new Intent();
-			intent.setClass(getActivity(), LoginActivity.class);
-			getActivity().startActivity(intent);
+			if (!mApp.getLogin()) {				
+				Intent intent = new Intent();
+				intent.setClass(getActivity(), LoginActivity.class);
+				getActivity().startActivity(intent);
+			} else {
+				mApp.setLogin(false);
+				mSignOut.setText(R.string.settings_sign_in);
+			}
 			break;
 		default:
 			break;

@@ -72,21 +72,4 @@ public class HttpUtil {
 		client.post(context, url, entity, contentType, responseHandler);
 	}
 
-	private static HttpEntity paramsToEntity(RequestParams params, ResponseHandlerInterface responseHandler) {
-        HttpEntity entity = null;
-
-        try {
-            if (params != null) {
-                entity = params.getEntity(responseHandler);
-            }
-        } catch (IOException e) {
-            if (responseHandler != null) {
-                responseHandler.sendFailureMessage(0, null, null, e);
-            } else {
-                e.printStackTrace();
-            }
-        }
-
-        return entity;
-    }
 }
