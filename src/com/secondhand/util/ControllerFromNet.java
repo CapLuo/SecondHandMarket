@@ -19,8 +19,6 @@ public class ControllerFromNet {
 		JSONObject object = new JSONObject();
 		object.put("Email", user);
 		object.put("PassWord", password);
-		RequestParams params = new RequestParams();
-		params.put("logInfoView", object.toString());
 		HttpUtil.post(context, FieldUtil.Link_API + "/Login/LoginCreate",
 				object, "application/json", new AsyncHttpResponseHandler() {
 
@@ -28,7 +26,7 @@ public class ControllerFromNet {
 					public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
 						Log.i(FieldUtil.TAG, arg0
 								+ "---------> Http request login success."
-								+ (new String(arg2) == null ? "" : new String(
+								+ (arg2 == null ? "" : new String(
 										arg2)));
 					}
 
