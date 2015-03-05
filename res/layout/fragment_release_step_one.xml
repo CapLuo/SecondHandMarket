@@ -4,7 +4,27 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
+    <TextView
+        android:id="@+id/release_step_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/release_textline_margintop"
+        android:text="@string/release_step_one"
+        android:textSize="@dimen/release_textsize" />
+
+    <TextView
+        android:id="@+id/release_insert_pic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/release_step_one"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/release_textline_margintop"
+        android:text="@string/release_insert_pic"
+        android:textSize="@dimen/release_textsize" />
+
     <Button
+        android:id="@+id/release_step_next"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -16,5 +36,33 @@
         android:text="@string/next_step"
         android:textColor="@color/white"
         android:textSize="@dimen/release_textsize" />
+
+    <FrameLayout
+        android:id="@+id/release_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/release_step_next"
+        android:layout_below="@id/release_insert_pic"
+        android:layout_marginTop="@dimen/release_textline_margintop" >
+
+        <ImageView
+            android:id="@+id/release_pic"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/pic_gray"
+            android:contentDescription="@drawable/release_pic"
+            android:scaleType="centerInside"
+            android:src="@drawable/release_pic" />
+
+        <TextView
+            android:id="@+id/release_pic_click"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/release_textline_margintop"
+            android:text="@string/release_insert_pic_click"
+            android:textColor="@color/white"
+            android:textSize="@dimen/release_textsize" />
+    </FrameLayout>
 
 </RelativeLayout>

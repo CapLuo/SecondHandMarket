@@ -1,16 +1,23 @@
 package com.secondhand.market.view;
 
-import com.secondhand.market.R;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import com.secondhand.market.R;
 
 //发布页面
-public class FragmentReleaseStepOne extends FragmentInterfaceChoice {
+public class FragmentReleaseStepOne extends FragmentInterfaceChoice implements OnClickListener {
 
 	private View mContentView;
+
+	private View mStepNext;
+	private View mTextInsert;
+	private ImageView mImgInsert;
+	private View mInsertLayout;
 
 	public FragmentReleaseStepOne(ChoiceFragmentInterface mInterface) {
 		setChoiceFragmentInterface(mInterface);
@@ -33,5 +40,29 @@ public class FragmentReleaseStepOne extends FragmentInterfaceChoice {
 	}
 
 	private void initView() {
+		mStepNext = mContentView.findViewById(R.id.release_step_next);
+		mStepNext.setOnClickListener(this);
+		mTextInsert = mContentView.findViewById(R.id.release_pic_click);
+		mTextInsert.setOnClickListener(this);
+		mImgInsert = (ImageView) mContentView.findViewById(R.id.release_pic);
+
+		mInsertLayout = mContentView.findViewById(R.id.release_layout);
+		mInsertLayout.setOnClickListener(this);
+	}
+
+	private void initData() {
+		
+	}
+
+	@Override
+	public void onClick(View view) {
+		switch (view.getId()) {
+		case R.id.release_step_next:
+			
+			break;
+
+		default:
+			break;
+		}
 	}
 }
