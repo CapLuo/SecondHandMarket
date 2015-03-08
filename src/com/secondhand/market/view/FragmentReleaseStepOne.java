@@ -10,7 +10,8 @@ import android.widget.ImageView;
 import com.secondhand.market.R;
 
 //发布页面
-public class FragmentReleaseStepOne extends FragmentInterfaceChoice implements OnClickListener {
+public class FragmentReleaseStepOne extends FragmentInterfaceChoice implements
+		OnClickListener {
 
 	private View mContentView;
 
@@ -42,23 +43,19 @@ public class FragmentReleaseStepOne extends FragmentInterfaceChoice implements O
 	private void initView() {
 		mStepNext = mContentView.findViewById(R.id.release_step_next);
 		mStepNext.setOnClickListener(this);
-		mTextInsert = mContentView.findViewById(R.id.release_pic_click);
-		mTextInsert.setOnClickListener(this);
 		mImgInsert = (ImageView) mContentView.findViewById(R.id.release_pic);
 
-		mInsertLayout = mContentView.findViewById(R.id.release_layout);
-		mInsertLayout.setOnClickListener(this);
 	}
 
 	private void initData() {
-		
+
 	}
 
 	@Override
 	public void onClick(View view) {
 		switch (view.getId()) {
 		case R.id.release_step_next:
-			
+
 			break;
 
 		default:

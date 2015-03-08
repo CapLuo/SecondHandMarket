@@ -12,5 +12,7 @@
     <color name="dark_orange">#EE5932</color>
     <color name="green">#9CCC65</color>
     <color name="dark_green">#8BBB54</color>
+    <color name="yellow">#FFA726</color>
+    <color name="dark_yellow">#FB8C00</color>
 
 </resources>

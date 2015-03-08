@@ -38,6 +38,7 @@
     <dimen name="release_textline_margintop">15dp</dimen>
     <dimen name="release_textline_marginleft">20dp</dimen>
     <dimen name="release_textsize">19sp</dimen>
+    <dimen name="release_browsing_img_height">80dp</dimen>
 
     <!-- login page -->
     <dimen name="login_line_height">2dp</dimen>
