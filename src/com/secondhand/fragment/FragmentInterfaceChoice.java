@@ -1,4 +1,4 @@
-package com.secondhand.market.view;
+package com.secondhand.fragment;
 
 import android.support.v4.app.Fragment;
 

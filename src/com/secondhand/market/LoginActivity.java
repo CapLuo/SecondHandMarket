@@ -1,8 +1,8 @@
 package com.secondhand.market;
 
-import com.secondhand.market.view.FragmentInterfaceChoice.ChoiceFragmentInterface;
-import com.secondhand.market.view.FragmentLogin;
-import com.secondhand.market.view.FragmentRegister;
+import com.secondhand.fragment.FragmentLogin;
+import com.secondhand.fragment.FragmentRegister;
+import com.secondhand.fragment.FragmentInterfaceChoice.ChoiceFragmentInterface;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;

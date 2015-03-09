@@ -1,4 +1,4 @@
-package com.secondhand.market.view;
+package com.secondhand.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

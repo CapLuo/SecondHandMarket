@@ -1,4 +1,4 @@
-package com.secondhand.market.view;
+package com.secondhand.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.secondhand.market.R;
+import com.secondhand.market.view.FixGridView;
 
 //首页页面
 public class FragmentHome extends Fragment implements OnClickListener {

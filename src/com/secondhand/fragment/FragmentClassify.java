@@ -1,4 +1,4 @@
-package com.secondhand.market.view;
+package com.secondhand.fragment;
 
 import com.secondhand.adapter.AdapterClassify;
 import com.secondhand.market.R;

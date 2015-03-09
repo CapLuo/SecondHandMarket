@@ -1,4 +1,4 @@
-package com.secondhand.market.view;
+package com.secondhand.fragment;
 
 import com.secondhand.market.R;
 import com.secondhand.util.FieldUtil;

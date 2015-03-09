@@ -8,10 +8,10 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.view.View.OnClickListener;
 
-import com.secondhand.market.view.FragmentCenter;
-import com.secondhand.market.view.FragmentClassify;
-import com.secondhand.market.view.FragmentHome;
-import com.secondhand.market.view.FragmentMessage;
+import com.secondhand.fragment.FragmentCenter;
+import com.secondhand.fragment.FragmentClassify;
+import com.secondhand.fragment.FragmentHome;
+import com.secondhand.fragment.FragmentMessage;
 
 public class HomeActivity extends FragmentActivity implements OnClickListener {
 

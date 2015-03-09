@@ -5,11 +5,11 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
-import com.secondhand.market.view.FragmentAbout;
-import com.secondhand.market.view.FragmentFeedback;
-import com.secondhand.market.view.FragmentHelp;
-import com.secondhand.market.view.FragmentSettingMessageRemind;
-import com.secondhand.market.view.FragmentSettingMian;
+import com.secondhand.fragment.FragmentAbout;
+import com.secondhand.fragment.FragmentFeedback;
+import com.secondhand.fragment.FragmentHelp;
+import com.secondhand.fragment.FragmentSettingMessageRemind;
+import com.secondhand.fragment.FragmentSettingMian;
 
 public class SettingActivity extends FragmentActivity {
 
