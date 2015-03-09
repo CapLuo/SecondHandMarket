@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.secondhand.market.R;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;

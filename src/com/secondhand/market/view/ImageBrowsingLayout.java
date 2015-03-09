@@ -47,6 +47,7 @@ public class ImageBrowsingLayout extends LinearLayout {
 					mShowInsertImg.showImg(uri);
 				}
 			});
+
 			addView(v);
 		}
 	}

@@ -2,12 +2,14 @@ package com.secondhand.fragment;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.secondhand.adapter.AdapterInsertImageBrowsing;
 import com.secondhand.market.R;
 import com.secondhand.market.view.ImageBrowsingLayout;
 
@@ -20,6 +22,8 @@ public class FragmentReleaseStepOne extends FragmentInterfaceChoice implements
 	private View mStepNext;
 	private ImageView mImgInsert;
 	private ImageBrowsingLayout mBrowsingLayout;
+
+	private AdapterInsertImageBrowsing mAdapterBrowsing;
 
 	public FragmentReleaseStepOne(ChoiceFragmentInterface mInterface) {
 		setChoiceFragmentInterface(mInterface);
@@ -48,8 +52,10 @@ public class FragmentReleaseStepOne extends FragmentInterfaceChoice implements
 
 		mImgInsert = (ImageView) mContentView.findViewById(R.id.release_pic);
 
+		mAdapterBrowsing = new AdapterInsertImageBrowsing(getActivity());
 		mBrowsingLayout = (ImageBrowsingLayout) mContentView
 				.findViewById(R.id.release_browsing);
+		mBrowsingLayout.setAdapter(mAdapterBrowsing);
 	}
 
 	private void initData() {
@@ -58,7 +64,7 @@ public class FragmentReleaseStepOne extends FragmentInterfaceChoice implements
 					@Override
 					public void showImg(String uri) {
 						if (TextUtils.isEmpty(uri)) {
-
+							Log.e("@@@@","sda");
 						} else {
 							// to do mImgInsert show img
 						}
