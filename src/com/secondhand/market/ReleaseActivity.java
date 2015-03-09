@@ -7,8 +7,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.view.View.OnClickListener;
 
-import com.secondhand.market.view.FragmentInterfaceChoice.ChoiceFragmentInterface;
-import com.secondhand.market.view.FragmentReleaseStepOne;
+import com.secondhand.fragment.FragmentReleaseStepOne;
+import com.secondhand.fragment.FragmentInterfaceChoice.ChoiceFragmentInterface;
 
 public class ReleaseActivity extends FragmentActivity implements
 		OnClickListener {
