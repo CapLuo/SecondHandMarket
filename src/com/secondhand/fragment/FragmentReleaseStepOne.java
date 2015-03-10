@@ -6,13 +6,11 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -102,6 +100,7 @@ public class FragmentReleaseStepOne extends FragmentInterfaceChoice implements
 	public void onClick(View view) {
 		switch (view.getId()) {
 		case R.id.release_step_next:
+			setChoic(1);
 			break;
 		case R.id.release_menu_camera:
 			mPop.dismiss();

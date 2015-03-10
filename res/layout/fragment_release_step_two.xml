@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/release_step_two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/release_textline_margintop"
+        android:text="@string/release_step_two"
+        android:textSize="@dimen/release_textsize" />
+
+    <TextView
+        android:id="@+id/release_insert_pic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/release_step_two"
+        android:layout_centerHorizontal="true"
+        android:text="@string/release_add_description"
+        android:textSize="@dimen/release_textsize" />
+
+    <RelativeLayout
+        android:id="@+id/release_property"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/release_insert_pic"
+        android:background="@drawable/pop_background" >
+
+        <TextView
+            android:id="@+id/release_text_property"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/release_property"
+            android:textSize="@dimen/release_textsize" />
+
+        <ImageView
+            android:id="@+id/release_property_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:contentDescription="@drawable/arrow_down"
+            android:src="@drawable/arrow_down" />
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/release_goods_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/release_property"
+        android:hint="@string/release_goods_title_hint"
+        android:singleLine="true"
+        android:textSize="@dimen/release_textsize" />
+
+    <Button
+        android:id="@+id/release_step_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/release_textline_margintop"
+        android:layout_marginLeft="@dimen/release_textline_marginleft"
+        android:layout_marginRight="@dimen/release_textline_marginleft"
+        android:layout_marginTop="@dimen/release_textline_margintop"
+        android:background="@drawable/next_step_button"
+        android:text="@string/next_step"
+        android:textColor="@color/white"
+        android:textSize="@dimen/release_textsize" />
+
+    <EditText
+        android:id="@+id/release_goods_description"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/release_step_next"
+        android:layout_below="@id/release_goods_title"
+        android:hint="@string/release_goods_description_hint" />
+
+</RelativeLayout>

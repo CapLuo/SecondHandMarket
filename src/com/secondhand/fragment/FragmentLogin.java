@@ -85,7 +85,7 @@ public class FragmentLogin extends FragmentInterfaceChoice implements
 	public void onClick(View view) {
 		switch (view.getId()) {
 		case R.id.login_register:
-			mChoice.setChoice(1);
+			setChoic(1);
 			break;
 		case R.id.login_back:
 			getActivity().onBackPressed();

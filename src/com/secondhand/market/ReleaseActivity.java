@@ -1,19 +1,15 @@
 package com.secondhand.market;
 
-import java.io.File;
-
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 
 import com.secondhand.fragment.FragmentInterfaceChoice.ChoiceFragmentInterface;
 import com.secondhand.fragment.FragmentReleaseStepOne;
+import com.secondhand.fragment.FragmentReleaseStepTwo;
 
 public class ReleaseActivity extends FragmentActivity implements
 		OnClickListener {
@@ -24,6 +20,7 @@ public class ReleaseActivity extends FragmentActivity implements
 	private FragmentTransaction mTransactioin;
 
 	private FragmentReleaseStepOne mReleaseOne;
+	private FragmentReleaseStepTwo mReleaseTwo;
 
 	private View mBack;
 
@@ -55,7 +52,20 @@ public class ReleaseActivity extends FragmentActivity implements
 		mTransactioin = mManager.beginTransaction();
 
 		switch (flag) {
+		case 2:
+			break;
 		case 1:
+			if (mReleaseTwo == null) {
+				mReleaseTwo = new FragmentReleaseStepTwo(
+						new ChoiceFragmentInterface() {
+
+							@Override
+							public void setChoice(int flag) {
+								setChoiceFragment(2);
+							}
+						});
+			}
+			mTransactioin.replace(R.id.content_main, mReleaseTwo);
 			break;
 		case 0:
 			if (mReleaseOne == null) {

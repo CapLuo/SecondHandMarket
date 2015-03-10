@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_height="match_parent" >
 
     <TextView
         android:id="@+id/release_step_one"
@@ -61,8 +60,8 @@
         android:layout_height="match_parent"
         android:layout_above="@id/bottom_line"
         android:layout_below="@id/release_pic"
-        android:minHeight="@dimen/release_browsing_img_height"
-        android:scrollbars="none" >
+        android:scrollbars="none"
+        android:minHeight="@dimen/release_browsing_img_height" >
 
         <com.secondhand.view.ImageBrowsingLayout
             android:id="@+id/release_browsing"
