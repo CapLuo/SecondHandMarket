@@ -44,7 +44,8 @@ public class FragmentClassify extends Fragment implements OnItemClickListener {
 	}
 
 	@Override
-	public void onItemClick(AdapterView<?> parent, View view, int position, long arg3) {
-		
+	public void onItemClick(AdapterView<?> parent, View view, int position,
+			long arg3) {
+
 	}
 }
