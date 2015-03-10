@@ -1,4 +1,4 @@
-package com.secondhand.market.view;
+package com.secondhand.view;
 
 import android.content.Context;
 import android.util.AttributeSet;

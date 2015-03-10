@@ -1,4 +1,4 @@
-package com.secondhand.market.view;
+package com.secondhand.view;
 
 import android.content.Context;
 import android.os.Handler;
@@ -25,7 +25,7 @@ public class FallScrollView extends ScrollView {
 		super(context, attrs, defStyle);
 	}
 
-	// ×Ü¸ß¶È
+	// ï¿½Ü¸ß¶ï¿½
 	public int computeVerticalScrollRange() {
 		return super.computeHorizontalScrollRange();
 	}
@@ -35,7 +35,7 @@ public class FallScrollView extends ScrollView {
 	}
 
 	/***
-	 * ³õÊ¼»¯
+	 * ï¿½ï¿½Ê¼ï¿½ï¿½
 	 */
 	private void init() {
 
@@ -92,7 +92,7 @@ public class FallScrollView extends ScrollView {
 	};
 
 	/**
-	 * »ñµÃ²Î¿¼µÄView£¬Ö÷ÒªÊÇÎªÁË»ñµÃËüµÄMeasuredHeight£¬È»ºóºÍ¹ö¶¯ÌõµÄScrollY+getHeight×÷±È½Ï¡£
+	 * ï¿½ï¿½Ã²Î¿ï¿½ï¿½ï¿½Viewï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½Îªï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½MeasuredHeightï¿½ï¿½È»ï¿½ï¿½Í¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ScrollY+getHeightï¿½ï¿½ï¿½È½Ï¡ï¿½
 	 */
 	public void getView() {
 		this.view = getChildAt(0);
@@ -102,7 +102,7 @@ public class FallScrollView extends ScrollView {
 	}
 
 	/**
-	 * ¶¨Òå½Ó¿Ú
+	 * ï¿½ï¿½ï¿½ï¿½Ó¿ï¿½
 	 * 
 	 * @author admin
 	 * 
