@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.secondhand.market.R;
-import com.secondhand.market.view.FixGridView;
+import com.secondhand.view.FixGridView;
 
 //首页页面
 public class FragmentHome extends Fragment implements OnClickListener {

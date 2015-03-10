@@ -7,10 +7,10 @@
         android:id="@+id/home_title_bar"
         layout="@layout/home_titlebar" />
 
-    <com.secondhand.market.view.FixGridView
+    <com.secondhand.view.FixGridView
         android:id="@+id/home_goods_gridview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
-    </com.secondhand.market.view.FixGridView>
+    </com.secondhand.view.FixGridView>
 
 </RelativeLayout>

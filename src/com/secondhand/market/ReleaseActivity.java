@@ -1,14 +1,19 @@
 package com.secondhand.market;
 
+import java.io.File;
+
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 
-import com.secondhand.fragment.FragmentReleaseStepOne;
 import com.secondhand.fragment.FragmentInterfaceChoice.ChoiceFragmentInterface;
+import com.secondhand.fragment.FragmentReleaseStepOne;
 
 public class ReleaseActivity extends FragmentActivity implements
 		OnClickListener {
@@ -89,5 +94,4 @@ public class ReleaseActivity extends FragmentActivity implements
 			break;
 		}
 	}
-
 }

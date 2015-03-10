@@ -35,12 +35,15 @@
 
     <!-- release page -->
     <dimen name="release_line_height">2dp</dimen>
+    <dimen name="release_pop_line_height">1dp</dimen>
     <dimen name="release_textline_margintop">15dp</dimen>
     <dimen name="release_textline_marginleft">20dp</dimen>
-    <dimen name="release_textsize">19sp</dimen>
-    <dimen name="release_browsing_img_height">90dp</dimen>
+    <dimen name="release_pop_text_marginLeft">40dp</dimen>
+    <dimen name="release_textsize">18sp</dimen>
+    <dimen name="release_browsing_img_height">50dp</dimen>
     <dimen name="release_img_width">220dp</dimen>
     <dimen name="release_add_img_width">64dp</dimen>
+    <dimen name="release_menu_textsize">21sp</dimen>
 
     <!-- login page -->
     <dimen name="login_line_height">2dp</dimen>

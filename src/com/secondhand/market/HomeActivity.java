@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.WindowManager;
 
 import com.secondhand.fragment.FragmentCenter;
 import com.secondhand.fragment.FragmentClassify;
@@ -27,6 +28,9 @@ public class HomeActivity extends FragmentActivity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
+
+		getWindow().setSoftInputMode(
+				WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
 		initView();
 	}
@@ -104,4 +108,5 @@ public class HomeActivity extends FragmentActivity implements OnClickListener {
 			break;
 		}
 	}
+
 }

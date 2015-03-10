@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.secondhand.market.R;
 
 import android.content.Context;
+import android.net.Uri;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,20 +16,24 @@ public class AdapterInsertImageBrowsing extends BaseAdapter {
 
 	private Context mContext;
 
-	private ArrayList<String> mList;
+	private ArrayList<Uri> mList;
 
 	public AdapterInsertImageBrowsing(Context context) {
 		mContext = context;
 
-		mList = new ArrayList<String>();
+		mList = new ArrayList<Uri>();
 	}
 
-	public void notifyDataList(ArrayList<String> list) {
+	public void notifyDataList(ArrayList<Uri> list) {
 		mList = list;
 	}
 
 	@Override
 	public int getCount() {
+		int size = mList.size();
+		if (size >= 4) {
+			return size;
+		}
 		return mList.size() + 1;
 	}
 
@@ -49,9 +54,10 @@ public class AdapterInsertImageBrowsing extends BaseAdapter {
 		}
 		if (position == mList.size()) {
 			((ImageView) view).setImageResource(R.drawable.add_release_pic);
-			view.setTag("");
+			view.setTag(Uri.parse(""));
 		} else {
-
+			((ImageView) view).setImageURI(mList.get(position));
+			view.setTag(mList.get(position));
 		}
 		return view;
 	}

@@ -61,15 +61,16 @@
         android:layout_height="match_parent"
         android:layout_above="@id/bottom_line"
         android:layout_below="@id/release_pic"
-        android:minHeight="@dimen/release_browsing_img_height" >
+        android:minHeight="@dimen/release_browsing_img_height"
+        android:scrollbars="none" >
 
-        <com.secondhand.market.view.ImageBrowsingLayout
+        <com.secondhand.view.ImageBrowsingLayout
             android:id="@+id/release_browsing"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:minHeight="@dimen/release_browsing_img_height"
             android:orientation="horizontal" >
-        </com.secondhand.market.view.ImageBrowsingLayout>
+        </com.secondhand.view.ImageBrowsingLayout>
     </HorizontalScrollView>
 
 </RelativeLayout>
