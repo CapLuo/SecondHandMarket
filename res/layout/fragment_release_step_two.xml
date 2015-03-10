@@ -24,10 +24,14 @@
 
     <RelativeLayout
         android:id="@+id/release_property"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/release_dropdown_list_width"
         android:layout_height="wrap_content"
         android:layout_below="@id/release_insert_pic"
-        android:background="@drawable/pop_background" >
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/release_textline_margintop"
+        android:background="@drawable/pop_background"
+        android:paddingBottom="@dimen/release_dropdown_list_padding_top"
+        android:paddingTop="@dimen/release_dropdown_list_padding_top" >
 
         <TextView
             android:id="@+id/release_text_property"
@@ -42,6 +46,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/release_textline_marginleft"
             android:contentDescription="@drawable/arrow_down"
             android:src="@drawable/arrow_down" />
     </RelativeLayout>
@@ -51,6 +57,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/release_property"
+        android:layout_marginLeft="@dimen/release_textline_marginleft"
+        android:layout_marginRight="@dimen/release_textline_marginleft"
+        android:layout_marginTop="@dimen/release_textline_margintop"
+        android:gravity="center_horizontal"
         android:hint="@string/release_goods_title_hint"
         android:singleLine="true"
         android:textSize="@dimen/release_textsize" />
@@ -75,6 +85,10 @@
         android:layout_height="match_parent"
         android:layout_above="@id/release_step_next"
         android:layout_below="@id/release_goods_title"
+        android:layout_marginLeft="@dimen/release_textline_marginleft"
+        android:layout_marginRight="@dimen/release_textline_marginleft"
+        android:layout_marginTop="@dimen/release_textline_margintop"
+        android:gravity="center_horizontal"
         android:hint="@string/release_goods_description_hint" />
 
 </RelativeLayout>

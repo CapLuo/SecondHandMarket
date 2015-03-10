@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/pop_background"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/release_description_new"
+        android:layout_width="@dimen/release_dropdown_list_width"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/release_description_new"
+        android:textSize="@dimen/release_menu_textsize" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/release_pop_line_height"
+        android:background="@color/light_gray" />
+
+    <TextView
+        android:id="@+id/release_description_second"
+        android:layout_width="@dimen/release_dropdown_list_width"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/release_description_second"
+        android:textSize="@dimen/release_menu_textsize" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/release_pop_line_height"
+        android:background="@color/light_gray" />
+
+    <TextView
+        android:id="@+id/release_description_change"
+        android:layout_width="@dimen/release_dropdown_list_width"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/release_description_change"
+        android:textSize="@dimen/release_menu_textsize" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/release_pop_line_height"
+        android:background="@color/light_gray" />
+
+    <TextView
+        android:id="@+id/release_description_shopping"
+        android:layout_width="@dimen/release_dropdown_list_width"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/release_description_shopping"
+        android:textSize="@dimen/release_menu_textsize" />
+
+</LinearLayout>
