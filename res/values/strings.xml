@@ -62,6 +62,14 @@
     <string name="release_description_second">二手</string>
     <string name="release_description_change">转手</string>
     <string name="release_description_shopping">代购</string>
+    <string name="release_step_three">发布宝贝第三步</string>
+    <string name="release_add_price">设置宝贝价格</string>
+    <string name="release_input_edittext">请输入</string>
+    <string name="release_old_price">原价</string>
+    <string name="release_now_price">出售价</string>
+    <string name="release_trading_places">交易地点</string>
+    <string name="release_the_contact">联系方式</string>
+    <string name="release_final_release">发布闲置</string>
 
     <string name="login_title">登录</string>
     <string name="login_username">用户名</string>

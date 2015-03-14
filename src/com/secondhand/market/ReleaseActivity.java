@@ -9,6 +9,7 @@ import android.view.View.OnClickListener;
 
 import com.secondhand.fragment.FragmentInterfaceChoice.ChoiceFragmentInterface;
 import com.secondhand.fragment.FragmentReleaseStepOne;
+import com.secondhand.fragment.FragmentReleaseStepThree;
 import com.secondhand.fragment.FragmentReleaseStepTwo;
 
 public class ReleaseActivity extends FragmentActivity implements
@@ -21,6 +22,7 @@ public class ReleaseActivity extends FragmentActivity implements
 
 	private FragmentReleaseStepOne mReleaseOne;
 	private FragmentReleaseStepTwo mReleaseTwo;
+	private FragmentReleaseStepThree mReleaseThree;
 
 	private View mBack;
 
@@ -53,6 +55,17 @@ public class ReleaseActivity extends FragmentActivity implements
 
 		switch (flag) {
 		case 2:
+			if (mReleaseThree == null) {
+				mReleaseThree = new FragmentReleaseStepThree(
+						new ChoiceFragmentInterface() {
+
+							@Override
+							public void setChoice(int flag) {
+
+							}
+						});
+			}
+			mTransactioin.replace(R.id.content_main, mReleaseThree);
 			break;
 		case 1:
 			if (mReleaseTwo == null) {

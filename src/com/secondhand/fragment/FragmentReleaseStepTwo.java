@@ -84,6 +84,7 @@ public class FragmentReleaseStepTwo extends FragmentInterfaceChoice implements
 			mGoodDescription.setText(R.string.release_description_shopping);
 			break;
 		case R.id.release_step_next:
+			setChoic(2);
 			break;
 		default:
 			break;
