@@ -56,6 +56,7 @@ public class ReleaseActivity extends FragmentActivity implements
 		mCurrentFragment = flag;
 
 		mTransactioin = mManager.beginTransaction();
+		hideAllFragment(mTransactioin);
 
 		switch (flag) {
 		case 2:
@@ -68,8 +69,10 @@ public class ReleaseActivity extends FragmentActivity implements
 
 							}
 						});
+				mTransactioin.add(R.id.content_main, mReleaseThree);
+			} else {
+				mTransactioin.show(mReleaseThree);
 			}
-			mTransactioin.replace(R.id.content_main, mReleaseThree);
 			break;
 		case 1:
 			if (mReleaseTwo == null) {
@@ -81,8 +84,10 @@ public class ReleaseActivity extends FragmentActivity implements
 								setChoiceFragment(2);
 							}
 						});
+				mTransactioin.add(R.id.content_main, mReleaseTwo);
+			} else {
+				mTransactioin.show(mReleaseTwo);
 			}
-			mTransactioin.replace(R.id.content_main, mReleaseTwo);
 			break;
 		case 0:
 			if (mReleaseOne == null) {
@@ -93,13 +98,27 @@ public class ReleaseActivity extends FragmentActivity implements
 								setChoiceFragment(1);
 							}
 						});
+				mTransactioin.add(R.id.content_main, mReleaseOne);
+			} else {
+				mTransactioin.show(mReleaseOne);
 			}
-			mTransactioin.replace(R.id.content_main, mReleaseOne);
 			break;
 		default:
 			break;
 		}
 		mTransactioin.commit();
+	}
+
+	private void hideAllFragment(FragmentTransaction transaction) {
+		if (mReleaseOne != null) {
+			transaction.hide(mReleaseOne);
+		}
+		if (mReleaseTwo != null) {
+			transaction.hide(mReleaseTwo);
+		}
+		if (mReleaseThree != null) {
+			transaction.hide(mReleaseThree);
+		}
 	}
 
 	@Override
