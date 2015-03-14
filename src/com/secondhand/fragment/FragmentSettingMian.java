@@ -1,5 +1,7 @@
 package com.secondhand.fragment;
 
+import java.io.File;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,6 +15,7 @@ import com.secondhand.market.FleastreetApplication;
 import com.secondhand.market.LoginActivity;
 import com.secondhand.market.R;
 import com.secondhand.market.SettingActivity;
+import com.secondhand.util.ToolsUtil;
 
 public class FragmentSettingMian extends Fragment implements OnClickListener {
 
@@ -94,6 +97,7 @@ public class FragmentSettingMian extends Fragment implements OnClickListener {
 			mActivity.setFragmentChoice(4);
 			break;
 		case R.id.settings_clear:
+			clearMaster();
 			break;
 		case R.id.setting_sign_out:
 			if (!mApp.getLogin()) {				
@@ -107,6 +111,27 @@ public class FragmentSettingMian extends Fragment implements OnClickListener {
 			break;
 		default:
 			break;
+		}
+	}
+
+	private void clearMaster() {
+		String appfile = ToolsUtil.getAppFilePath();
+		File file = new File(appfile);
+		if (file.exists()) {
+			deleteAllFiles(file);
+		}
+	}
+
+	private void deleteAllFiles(File file) {
+		if (file.isDirectory()) {
+			File[] files = file.listFiles();
+			for (File f : files) {
+				deleteAllFiles(f);
+			}
+		} else {
+			if (!file.getPath().endsWith("nomedia")) {				
+				file.delete();
+			}
 		}
 	}
 }
