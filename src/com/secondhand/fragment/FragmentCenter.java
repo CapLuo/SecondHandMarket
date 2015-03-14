@@ -127,4 +127,9 @@ public class FragmentCenter extends Fragment implements OnClickListener {
 					.getColor(android.R.color.transparent));
 		}
 	}
+
+	@Override
+	public void onDestroyView() {
+		super.onDestroyView();
+	}
 }

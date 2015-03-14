@@ -96,9 +96,8 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:gravity="center"
-            android:paddingLeft="@dimen/center_settings_padding_right"
-            android:paddingRight="@dimen/center_settings_padding_right"
             android:paddingTop="@dimen/center_settings_padding_top"
+            android:singleLine="true"
             android:text="@string/center_sell"
             android:textSize="@dimen/center_settings_navigation" />
 
@@ -110,9 +109,8 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:gravity="center"
-            android:paddingLeft="@dimen/center_settings_padding_right"
-            android:paddingRight="@dimen/center_settings_padding_right"
             android:paddingTop="@dimen/center_settings_padding_top"
+            android:singleLine="true"
             android:text="@string/center_selled"
             android:textSize="@dimen/center_settings_navigation" />
 
@@ -124,9 +122,8 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:gravity="center"
-            android:paddingLeft="@dimen/center_settings_padding_right"
-            android:paddingRight="@dimen/center_settings_padding_right"
             android:paddingTop="@dimen/center_settings_padding_top"
+            android:singleLine="true"
             android:text="@string/center_buy"
             android:textSize="@dimen/center_settings_navigation" />
 
@@ -139,9 +136,8 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:gravity="center"
-            android:paddingLeft="@dimen/center_settings_padding_right"
-            android:paddingRight="@dimen/center_settings_padding_right"
             android:paddingTop="@dimen/center_settings_padding_top"
+            android:singleLine="true"
             android:text="@string/center_favorites"
             android:textSize="@dimen/center_settings_navigation" />
     </LinearLayout>
