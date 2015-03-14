@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.Toast;
 
 import com.secondhand.adapter.AdapterInsertImageBrowsing;
 import com.secondhand.market.R;
@@ -100,7 +101,13 @@ public class FragmentReleaseStepOne extends FragmentInterfaceChoice implements
 	public void onClick(View view) {
 		switch (view.getId()) {
 		case R.id.release_step_next:
-			setChoic(1);
+			if (mReleaseImages.size() == 0) {
+				Toast.makeText(getActivity(),
+						R.string.release_please_insert_pic, Toast.LENGTH_SHORT)
+						.show();
+			} else {
+				setChoic(1);
+			}
 			break;
 		case R.id.release_menu_camera:
 			mPop.dismiss();
@@ -157,7 +164,12 @@ public class FragmentReleaseStepOne extends FragmentInterfaceChoice implements
 			startPhotoZoom(Uri.fromFile(new File(mSendImage)));
 		}
 		if (requestCode == 3) {
-			Uri uri = Uri.fromFile(new File(mSendImage));
+			File imageFile = new File(mSendImage);
+			if (imageFile.length() == 0) {
+				imageFile.delete();
+				return;
+			}
+			Uri uri = Uri.fromFile(imageFile);
 			mImgInsert.setImageURI(uri);
 			mReleaseImages.add(uri);
 			mAdapterBrowsing.notifyDataList(mReleaseImages);

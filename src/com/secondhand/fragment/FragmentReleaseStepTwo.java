@@ -2,6 +2,7 @@ package com.secondhand.fragment;
 
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -10,6 +11,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.secondhand.market.R;
 
@@ -84,7 +86,9 @@ public class FragmentReleaseStepTwo extends FragmentInterfaceChoice implements
 			mGoodDescription.setText(R.string.release_description_shopping);
 			break;
 		case R.id.release_step_next:
-			setChoic(2);
+			if (!InputAllNULL()) {
+				setChoic(2);
+			}
 			break;
 		default:
 			break;
@@ -112,5 +116,28 @@ public class FragmentReleaseStepTwo extends FragmentInterfaceChoice implements
 					.setOnClickListener(this);
 		}
 		mPop.showAsDropDown(parent);
+	}
+
+	private boolean InputAllNULL() {
+		if (mGoodDescription.getText().equals(
+				getActivity().getResources().getString(
+						R.string.release_property))) {
+			Toast.makeText(getActivity(),
+					R.string.release_please_choose_properties,
+					Toast.LENGTH_SHORT).show();
+			return true;
+		}
+		if (TextUtils.isEmpty(mTitle.getText().toString())) {
+			Toast.makeText(getActivity(), R.string.release_please_fill_title,
+					Toast.LENGTH_SHORT).show();
+			return true;
+		}
+		if (mContent.getText().toString().length() < 5) {
+			Toast.makeText(getActivity(),
+					R.string.release_please_fill_description,
+					Toast.LENGTH_SHORT).show();
+			return true;
+		}
+		return false;
 	}
 }

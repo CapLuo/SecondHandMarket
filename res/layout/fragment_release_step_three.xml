@@ -48,6 +48,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/release_textline_margintop"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:textSize="@dimen/release_error_textsize"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/release_error_old_price"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:layout_marginLeft="@dimen/release_input_text_margin_left"
+                android:text="@string/release_error_old_price"
+                android:textColor="@color/red"
+                android:textSize="@dimen/release_error_textsize"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
             android:orientation="horizontal" >
 
             <TextView
@@ -59,6 +85,7 @@
                 android:textSize="@dimen/release_textsize" />
 
             <EditText
+                android:id="@+id/release_old_price"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/release_input_text_margin_left"
@@ -74,6 +101,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/release_textline_margintop"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:textSize="@dimen/release_error_textsize"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/release_error_now_price"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:layout_marginLeft="@dimen/release_input_text_margin_left"
+                android:text="@string/release_error_now_price"
+                android:textColor="@color/red"
+                android:textSize="@dimen/release_error_textsize"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
             android:orientation="horizontal" >
 
             <TextView
@@ -85,6 +138,7 @@
                 android:textSize="@dimen/release_textsize" />
 
             <EditText
+                android:id="@+id/release_now_price"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/release_input_text_margin_left"
@@ -100,6 +154,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/release_textline_margintop"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:textSize="@dimen/release_error_textsize"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/release_error_trading"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:layout_marginLeft="@dimen/release_input_text_margin_left"
+                android:text="@string/release_error_trading"
+                android:textColor="@color/red"
+                android:textSize="@dimen/release_error_textsize"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
             android:orientation="horizontal" >
 
             <TextView
@@ -111,6 +191,7 @@
                 android:textSize="@dimen/release_textsize" />
 
             <EditText
+                android:id="@+id/release_trading_places"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/release_input_text_margin_left"
@@ -126,6 +207,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/release_textline_margintop"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:textSize="@dimen/release_error_textsize"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/release_error_contact"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:layout_marginLeft="@dimen/release_input_text_margin_left"
+                android:text="@string/release_error_contact"
+                android:textColor="@color/red"
+                android:textSize="@dimen/release_error_textsize"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
             android:orientation="horizontal" >
 
             <TextView
@@ -137,13 +244,14 @@
                 android:textSize="@dimen/release_textsize" />
 
             <EditText
+                android:id="@+id/release_the_contact"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/release_input_text_margin_left"
                 android:layout_weight="6"
                 android:background="@drawable/edit_background"
-                android:hint="@string/release_input_edittext"
-                android:inputType="text"
+                android:hint="@string/release_phone_contact"
+                android:inputType="number"
                 android:singleLine="true"
                 android:textSize="@dimen/release_textsize" />
         </LinearLayout>

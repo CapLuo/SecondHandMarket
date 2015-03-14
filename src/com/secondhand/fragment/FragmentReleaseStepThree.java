@@ -3,13 +3,29 @@ package com.secondhand.fragment;
 import com.secondhand.market.R;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.TextView;
 
-public class FragmentReleaseStepThree extends FragmentInterfaceChoice {
+public class FragmentReleaseStepThree extends FragmentInterfaceChoice implements
+		OnClickListener {
 
 	private View mContentView;
+
+	private View mReleaseGoods;
+	private EditText mOldPrice; // 原价
+	private EditText mNewPrice; // 现价
+	private EditText mTrading; // 交易地点
+	private EditText mPhone; // 联系方式
+
+	private TextView mErrorOld;
+	private TextView mErrorNow;
+	private TextView mErrorTrading;
+	private TextView mErrorContact;
 
 	public FragmentReleaseStepThree(ChoiceFragmentInterface fragmentInterface) {
 
@@ -32,7 +48,74 @@ public class FragmentReleaseStepThree extends FragmentInterfaceChoice {
 	}
 
 	private void initView() {
+		mReleaseGoods = mContentView.findViewById(R.id.release_final_release);
+		mReleaseGoods.setOnClickListener(this);
 
+		mOldPrice = (EditText) mContentView
+				.findViewById(R.id.release_old_price);
+		mNewPrice = (EditText) mContentView
+				.findViewById(R.id.release_now_price);
+		mTrading = (EditText) mContentView
+				.findViewById(R.id.release_trading_places);
+		mPhone = (EditText) mContentView.findViewById(R.id.release_the_contact);
+
+		mErrorOld = (TextView) mContentView.findViewById(R.id.release_error_old_price);
+		mErrorNow = (TextView) mContentView.findViewById(R.id.release_error_now_price);
+		mErrorTrading = (TextView) mContentView.findViewById(R.id.release_error_trading);
+		mErrorContact = (TextView) mContentView.findViewById(R.id.release_error_contact);
 	}
 
+	@Override
+	public void onClick(View view) {
+		if (view.getId() == R.id.release_final_release) {
+			VerifyAllInputNull();
+		}
+	}
+
+	private void VerifyAllInputNull() {
+		if (VerifyInputNull(mOldPrice)) {
+			mErrorOld.setVisibility(View.VISIBLE);
+		} else {
+			mErrorOld.setVisibility(View.INVISIBLE);
+		}
+		if (VerifyInputNull(mNewPrice)) {
+			mErrorNow.setVisibility(View.VISIBLE);
+		} else {
+			mErrorNow.setVisibility(View.INVISIBLE);
+		}
+		if (VerifyInputNull(mTrading)) {
+			mErrorTrading.setVisibility(View.VISIBLE);
+		} else {
+			mErrorTrading.setVisibility(View.INVISIBLE);
+		}
+		if (!VerifyInputNull(mPhone) && VerifyPhoneOrQQ(mPhone)) {
+			mErrorContact.setVisibility(View.INVISIBLE);
+		} else {
+			mErrorContact.setVisibility(View.VISIBLE);
+		}
+	}
+
+	private boolean VerifyInputNull(EditText edit) {
+		if (TextUtils.isEmpty(edit.getText().toString())) {
+			return true;
+		}
+		return false;
+	}
+
+	private boolean VerifyPhoneOrQQ (EditText edit) {
+		String qq = "^[1-9][0-9]{4,}$";
+		String phone = "^(0\\d{2}-\\d{8}(-\\d{1,4})?)|(0\\d{3}-\\d{7,8}(-\\d{1,4})?)$";
+		String tel = "^((13[0-9])|(15[^4,//D])|(18[0,5-9]))//d{8}$";
+		String str = edit.getText().toString();
+		if (str.matches(qq)) {
+			return true;
+		}
+		if (str.matches(phone)) {
+			return true;
+		}
+		if (str.matches(tel)) {
+			return true;
+		}
+		return false;
+	}
 }
