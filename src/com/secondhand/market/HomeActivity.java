@@ -50,12 +50,15 @@ public class HomeActivity extends FragmentActivity implements OnClickListener {
 
 	private void setFragmentContent(int index) {
 		mTransaction = mFragmentManager.beginTransaction();
+		hideAllFragment(mTransaction);
 		switch (index) {
 		case 1:
 			if (mClassify == null) {
 				mClassify = new FragmentClassify();
+				mTransaction.add(R.id.content_main, mClassify);
+			} else {
+				mTransaction.show(mClassify);
 			}
-			mTransaction.replace(R.id.content_main, mClassify);
 			break;
 		case 2:
 			Intent intent = new Intent();
@@ -65,25 +68,46 @@ public class HomeActivity extends FragmentActivity implements OnClickListener {
 		case 3:
 			if (mCenter == null) {
 				mCenter = new FragmentCenter();
+				mTransaction.add(R.id.content_main, mCenter);
+			} else {
+				mTransaction.show(mCenter);
 			}
-			mTransaction.replace(R.id.content_main, mCenter);
 			break;
 		case 4:
 			if (mMessage == null) {
 				mMessage = new FragmentMessage();
+				mTransaction.add(R.id.content_main, mMessage);
+			} else {
+				mTransaction.show(mMessage);
 			}
-			mTransaction.replace(R.id.content_main, mMessage);
 			break;
 		case 0:
 			if (mHome == null) {
 				mHome = new FragmentHome();
+				mTransaction.add(R.id.content_main, mHome);
+			} else {
+				mTransaction.show(mHome);
 			}
-			mTransaction.replace(R.id.content_main, mHome);
 			break;
 		default:
 			break;
 		}
 		mTransaction.commit();
+	}
+
+	private void hideAllFragment(FragmentTransaction ft) {
+		if (mHome != null) {
+			ft.hide(mHome);
+		}
+		if (mClassify != null) {
+			ft.hide(mClassify);
+		}
+		if (mMessage != null) {
+			ft.hide(mMessage);
+		}
+		if (mCenter != null) {
+			ft.hide(mCenter);
+		}
 	}
 
 	@Override
