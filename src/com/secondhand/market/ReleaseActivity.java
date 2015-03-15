@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.View.OnClickListener;
 
+import com.secondhand.data.GoodReleaseInfo;
 import com.secondhand.fragment.FragmentInterfaceChoice.ChoiceFragmentInterface;
 import com.secondhand.fragment.FragmentReleaseStepOne;
 import com.secondhand.fragment.FragmentReleaseStepThree;
@@ -26,6 +27,8 @@ public class ReleaseActivity extends FragmentActivity implements
 	private FragmentReleaseStepThree mReleaseThree;
 
 	private View mBack;
+
+	private GoodReleaseInfo mGoodInfo;
 
 	@Override
 	protected void onCreate(Bundle bundle) {
