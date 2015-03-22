@@ -1,6 +1,7 @@
 package com.secondhand.util;
 
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 
 import org.apache.http.Header;
 import org.json.JSONException;
@@ -98,5 +99,33 @@ public class ControllerFromNet {
 								+ "---------> Http request login failure.");
 					}
 				});
+	}
+
+	public static void UpdatePics(Context context, List<byte[]> list,
+			String schoolid, String userid,
+			ResponseHandlerInterface responseHandler) throws JSONException,
+			UnsupportedEncodingException {
+		JSONObject object = new JSONObject();
+		for (byte[] file : list) {
+			object.put("Files", file);
+		}
+		object.put("SchoolId", schoolid);
+		object.put("UserId", userid);
+		object.put("Extensions", "3");
+		HttpUtil.post(context, FieldUtil.Link_API + "/GoodsPicture/Saves",
+				object, "application/json", responseHandler);
+	}
+
+	public static void UpdatePic(Context context, byte[] pic, String schoolid,
+			String userid, ResponseHandlerInterface responseHandler)
+			throws JSONException, UnsupportedEncodingException {
+		JSONObject object = new JSONObject();
+		object.put("File", pic);
+		object.put("SchoolId", schoolid);
+		object.put("UserId", userid);
+		object.put("Extensions", "3");
+		HttpUtil.post(context, FieldUtil.Link_API + "/GoodsPicture/Save",
+				object, "multipart/form-data", responseHandler);
+		Log.e("@@@@","sada111111");
 	}
 }

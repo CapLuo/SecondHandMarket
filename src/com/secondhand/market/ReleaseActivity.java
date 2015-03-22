@@ -39,6 +39,7 @@ public class ReleaseActivity extends FragmentActivity implements
 		getWindow().setSoftInputMode(
 				WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
+		mGoodInfo = new GoodReleaseInfo();
 		initView();
 		initData();
 	}
@@ -142,5 +143,9 @@ public class ReleaseActivity extends FragmentActivity implements
 		default:
 			break;
 		}
+	}
+
+	public GoodReleaseInfo getGoodInfo() {
+		return mGoodInfo;
 	}
 }

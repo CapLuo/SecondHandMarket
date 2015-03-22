@@ -1,11 +1,14 @@
 package com.secondhand.fragment;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,12 +20,14 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.Toast;
 
 import com.secondhand.adapter.AdapterInsertImageBrowsing;
 import com.secondhand.market.R;
+import com.secondhand.market.ReleaseActivity;
 import com.secondhand.util.ToolsUtil;
 import com.secondhand.view.ImageBrowsingLayout;
 
@@ -41,6 +46,7 @@ public class FragmentReleaseStepOne extends FragmentInterfaceChoice implements
 	private PopupWindow mPop;
 
 	private ArrayList<Uri> mReleaseImages;
+	private ArrayList<byte[]> mReleaseImageByte;
 	private String mSendImage;
 
 	public FragmentReleaseStepOne(ChoiceFragmentInterface mInterface) {
@@ -91,10 +97,12 @@ public class FragmentReleaseStepOne extends FragmentInterfaceChoice implements
 							showPopuWindow(mImgInsert);
 						} else {
 							mImgInsert.setImageURI(uri);
+							mImgInsert.setScaleType(ScaleType.FIT_XY);
 						}
 					}
 				});
 		mReleaseImages = new ArrayList<Uri>();
+		mReleaseImageByte = new ArrayList<byte[]>();
 	}
 
 	@Override
@@ -106,6 +114,9 @@ public class FragmentReleaseStepOne extends FragmentInterfaceChoice implements
 						R.string.release_please_insert_pic, Toast.LENGTH_SHORT)
 						.show();
 			} else {
+				ReleaseActivity activity = (ReleaseActivity) getActivity();
+				activity.getGoodInfo().setmImages(mReleaseImages);
+				activity.getGoodInfo().setmImageByte(mReleaseImageByte);
 				setChoic(1);
 			}
 			break;
@@ -170,7 +181,19 @@ public class FragmentReleaseStepOne extends FragmentInterfaceChoice implements
 				return;
 			}
 			Uri uri = Uri.fromFile(imageFile);
-			mImgInsert.setImageURI(uri);
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			try {
+				Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity()
+						.getContentResolver(), uri);
+				bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+				mReleaseImageByte.add(baos.toByteArray());
+				mImgInsert.setImageBitmap(bitmap);
+				mImgInsert.setScaleType(ScaleType.FIT_XY);
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 			mReleaseImages.add(uri);
 			mAdapterBrowsing.notifyDataList(mReleaseImages);
 			mBrowsingLayout.setAdapter(mAdapterBrowsing);

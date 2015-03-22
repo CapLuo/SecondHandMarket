@@ -13,7 +13,9 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.secondhand.data.GoodReleaseInfo;
 import com.secondhand.market.R;
+import com.secondhand.market.ReleaseActivity;
 
 public class FragmentReleaseStepTwo extends FragmentInterfaceChoice implements
 		OnClickListener {
@@ -87,6 +89,11 @@ public class FragmentReleaseStepTwo extends FragmentInterfaceChoice implements
 			break;
 		case R.id.release_step_next:
 			if (!InputAllNULL()) {
+				ReleaseActivity activity = (ReleaseActivity) getActivity();
+				GoodReleaseInfo info = activity.getGoodInfo();
+				info.setmTitle(mTitle.getText().toString());
+				info.setmDescription(mGoodDescription.getText().toString());
+				info.setmProperty(mContent.getText().toString());
 				setChoic(2);
 			}
 			break;

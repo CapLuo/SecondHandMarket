@@ -2,9 +2,12 @@ package com.secondhand.data;
 
 import java.util.List;
 
+import android.net.Uri;
+
 public class GoodReleaseInfo {
 
-	private List<String> mImages;
+	private List<Uri> mImages;
+	private List<byte[]> mImageByte;
 	private String mTitle;
 	private String mDescription;
 	private String mProperty;
@@ -13,11 +16,19 @@ public class GoodReleaseInfo {
 	private String mTradingPlace;
 	private String mPhone;
 
-	public List<String> getmImages() {
+	public List<byte[]> getmImageByte() {
+		return mImageByte;
+	}
+
+	public void setmImageByte(List<byte[]> mImageByte) {
+		this.mImageByte = mImageByte;
+	}
+
+	public List<Uri> getmImages() {
 		return mImages;
 	}
 
-	public void setmImages(List<String> mImages) {
+	public void setmImages(List<Uri> mImages) {
 		this.mImages = mImages;
 	}
 
@@ -77,11 +88,4 @@ public class GoodReleaseInfo {
 		this.mPhone = mPhone;
 	}
 
-	public void addImages(List<String> images) {
-		mImages = images;
-	}
-
-	public List<String> getImages() {
-		return mImages;
-	}
 }
