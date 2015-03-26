@@ -2,13 +2,16 @@ package com.secondhand.fragment;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -46,7 +49,7 @@ public class FragmentReleaseStepOne extends FragmentInterfaceChoice implements
 	private PopupWindow mPop;
 
 	private ArrayList<Uri> mReleaseImages;
-	private ArrayList<byte[]> mReleaseImageByte;
+	private ArrayList<String> mReleaseImageName;
 	private String mSendImage;
 
 	public FragmentReleaseStepOne(ChoiceFragmentInterface mInterface) {
@@ -102,7 +105,7 @@ public class FragmentReleaseStepOne extends FragmentInterfaceChoice implements
 					}
 				});
 		mReleaseImages = new ArrayList<Uri>();
-		mReleaseImageByte = new ArrayList<byte[]>();
+		mReleaseImageName = new ArrayList<String>();
 	}
 
 	@Override
@@ -116,7 +119,7 @@ public class FragmentReleaseStepOne extends FragmentInterfaceChoice implements
 			} else {
 				ReleaseActivity activity = (ReleaseActivity) getActivity();
 				activity.getGoodInfo().setmImages(mReleaseImages);
-				activity.getGoodInfo().setmImageByte(mReleaseImageByte);
+				activity.getGoodInfo().setmImageByte(mReleaseImageName);
 				setChoic(1);
 			}
 			break;
@@ -181,19 +184,9 @@ public class FragmentReleaseStepOne extends FragmentInterfaceChoice implements
 				return;
 			}
 			Uri uri = Uri.fromFile(imageFile);
-			ByteArrayOutputStream baos = new ByteArrayOutputStream();
-			try {
-				Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity()
-						.getContentResolver(), uri);
-				bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
-				mReleaseImageByte.add(baos.toByteArray());
-				mImgInsert.setImageBitmap(bitmap);
-				mImgInsert.setScaleType(ScaleType.FIT_XY);
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			mReleaseImageName.add(mSendImage);
+			mImgInsert.setImageURI(uri);
+			mImgInsert.setScaleType(ScaleType.FIT_XY);
 			mReleaseImages.add(uri);
 			mAdapterBrowsing.notifyDataList(mReleaseImages);
 			mBrowsingLayout.setAdapter(mAdapterBrowsing);

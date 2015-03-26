@@ -2,12 +2,16 @@ package com.secondhand.util;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
+import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.protocol.HTTP;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.content.Context;
@@ -46,8 +50,8 @@ public class HttpUtil {
 		client.get(urlString, res);
 	}
 
-	/* 带参数，获取json对象或者数组
-	 * params.put("name", name);
+	/*
+	 * 带参数，获取json对象或者数组 params.put("name", name);
 	 */
 	public static void get(String urlString, RequestParams params,
 			JsonHttpResponseHandler res) {
@@ -59,17 +63,57 @@ public class HttpUtil {
 		client.get(uString, bHandler);
 	}
 
-	/* 上传文件
-	 * params.put("fileName", file);
+	/*
+	 * 上传文件 params.put("fileName", file);
 	 */
-	public static void post(String uString, RequestParams params, AsyncHttpResponseHandler responseHandler) {
+	public static void post(String uString, RequestParams params,
+			AsyncHttpResponseHandler responseHandler) {
 		client.post(uString, params, responseHandler);
 	}
 
-	public static void post(Context context, String url, JSONObject object, String contentType, ResponseHandlerInterface responseHandler) throws UnsupportedEncodingException {
-		StringEntity entity = new StringEntity(object.toString());
-		entity.setContentType(new BasicHeader(HTTP.CONTENT_TYPE, "application/json"));
+	public static void post(Context context, String url, JSONObject object,
+			String contentType, ResponseHandlerInterface responseHandler)
+			throws UnsupportedEncodingException {
+		byte[] bytes = object.toString().getBytes("utf-8");
+		ByteArrayEntity entity = new ByteArrayEntity(bytes);
+		entity.setContentType(new BasicHeader(HTTP.CONTENT_TYPE,
+				"application/json"));
 		client.post(context, url, entity, contentType, responseHandler);
 	}
 
+	public static void post(Context context, String url, JSONArray object,
+			String contentType, ResponseHandlerInterface responseHandler)
+			throws UnsupportedEncodingException {
+		List<JSONObject> list = new ArrayList<JSONObject>();
+		byte[] bytes = object.toString().getBytes("utf-8");
+		ByteArrayEntity entity = new ByteArrayEntity(bytes);
+		entity.setContentType(new BasicHeader(HTTP.CONTENT_TYPE,
+				"application/json"));
+		client.post(context, url, entity, contentType, responseHandler);
+	}
+
+	public static void post(Context context, String url, RequestParams params,
+			String contentType, ResponseHandlerInterface responseHandler) {
+		client.post(context, url, paramsToEntity(params, responseHandler),
+				contentType, responseHandler);
+	}
+
+	private static HttpEntity paramsToEntity(RequestParams params,
+			ResponseHandlerInterface responseHandler) {
+		HttpEntity entity = null;
+
+		try {
+			if (params != null) {
+				entity = params.getEntity(responseHandler);
+			}
+		} catch (IOException e) {
+			if (responseHandler != null) {
+				responseHandler.sendFailureMessage(0, null, null, e);
+			} else {
+				e.printStackTrace();
+			}
+		}
+
+		return entity;
+	}
 }

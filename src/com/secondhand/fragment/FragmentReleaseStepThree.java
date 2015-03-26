@@ -1,5 +1,6 @@
 package com.secondhand.fragment;
 
+import java.io.File;
 import java.io.UnsupportedEncodingException;
 
 import org.apache.http.Header;
@@ -7,6 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.secondhand.data.GoodReleaseInfo;
 import com.secondhand.market.R;
@@ -157,14 +159,28 @@ public class FragmentReleaseStepThree extends FragmentInterfaceChoice implements
 				ControllerFromNet.UpdatePics(getActivity(),
 						info.getmImageByte(), "1", "1", responseHandler);
 			} else if (info.getmImages().size() == 1) {
-				ControllerFromNet.UpdatePic(getActivity(), info.getmImageByte()
-						.get(0), "1", "1", responseHandler);
+				ControllerFromNet.UpdatePic(getActivity(), new File(info
+						.getmImageByte().get(0)), "1", "1", responseHandler);
 			}
 			Log.e("@@@@", "asdasd" + info.getmImages().size());
 		}
 	}
 
-	JsonHttpResponseHandler responseHandler = new JsonHttpResponseHandler(
+	private AsyncHttpResponseHandler responseHandler2 = new AsyncHttpResponseHandler() {
+
+		@Override
+		public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+			Log.e("@@@@", "success" + arg0);
+		}
+
+		@Override
+		public void onFailure(int arg0, Header[] arg1, byte[] arg2,
+				Throwable arg3) {
+			Log.e("@@@@", "" + arg0 + "  " + arg3.getMessage() + " "
+					+ (arg2 == null ? "null" : new String(arg2)));
+		}
+	};
+	private JsonHttpResponseHandler responseHandler = new JsonHttpResponseHandler(
 			"UTF-8") {
 
 		@Override
@@ -176,8 +192,26 @@ public class FragmentReleaseStepThree extends FragmentInterfaceChoice implements
 
 		@Override
 		public void onSuccess(int statusCode, Header[] headers,
+				JSONObject response) {
+			Log.e("@@@@", "object status code " + statusCode);
+			try {
+				Log.e("@@@@", response.getString("AccessUrl"));
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+		}
+
+		@Override
+		public void onSuccess(int statusCode, Header[] headers,
+				String responseString) {
+			Log.e("@@@@", "string status code " + statusCode);
+			super.onSuccess(statusCode, headers, responseString);
+		}
+
+		@Override
+		public void onSuccess(int statusCode, Header[] headers,
 				JSONArray response) {
-			Log.e("@@@@", "status code " + statusCode);
+			Log.e("@@@@", "array status code " + statusCode);
 			try {
 				for (int i = 0; i < response.length(); i++) {
 					JSONObject object = response.getJSONObject(i);

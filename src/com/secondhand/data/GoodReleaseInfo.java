@@ -7,7 +7,7 @@ import android.net.Uri;
 public class GoodReleaseInfo {
 
 	private List<Uri> mImages;
-	private List<byte[]> mImageByte;
+	private List<String> mImageByte;
 	private String mTitle;
 	private String mDescription;
 	private String mProperty;
@@ -16,11 +16,11 @@ public class GoodReleaseInfo {
 	private String mTradingPlace;
 	private String mPhone;
 
-	public List<byte[]> getmImageByte() {
+	public List<String> getmImageByte() {
 		return mImageByte;
 	}
 
-	public void setmImageByte(List<byte[]> mImageByte) {
+	public void setmImageByte(List<String> mImageByte) {
 		this.mImageByte = mImageByte;
 	}
 

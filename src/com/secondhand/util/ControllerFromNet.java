@@ -1,13 +1,22 @@
 package com.secondhand.util;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.http.Header;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.content.Context;
+import android.util.Base64;
 import android.util.Log;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -101,31 +110,71 @@ public class ControllerFromNet {
 				});
 	}
 
-	public static void UpdatePics(Context context, List<byte[]> list,
+	public static void UpdatePics(Context context, List<String> list,
 			String schoolid, String userid,
 			ResponseHandlerInterface responseHandler) throws JSONException,
 			UnsupportedEncodingException {
-		JSONObject object = new JSONObject();
-		for (byte[] file : list) {
-			object.put("Files", file);
+		try {
+			List<JSONObject> jsonList = new ArrayList<JSONObject>();
+			for (String filePath : list) {
+				File file = new File(filePath);
+				JSONObject jsonObject = new JSONObject();
+				FileInputStream fileInput = new FileInputStream(file);
+				ByteArrayOutputStream bos = new ByteArrayOutputStream(1000);
+				byte[] b = new byte[1000];
+				int n;
+				while ((n = fileInput.read(b)) != -1) {
+					bos.write(b, 0, n);
+				}
+				String str = new String(Base64.encode(bos.toByteArray(), 0));
+				jsonObject.put("Files", str);
+				jsonObject.put("SchoolId", schoolid);
+				jsonObject.put("UserId", userid);
+				jsonObject.put("Extensions", "jpg"); // 文件扩展名
+
+				jsonList.add(jsonObject);
+
+				fileInput.close();
+				bos.close();
+			}
+			JSONArray array = new JSONArray(jsonList);
+
+			HttpUtil.post(context, FieldUtil.Link_API + "/GoodsPicture/Saves",
+					array, "application/json", responseHandler);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-		object.put("SchoolId", schoolid);
-		object.put("UserId", userid);
-		object.put("Extensions", "3");
-		HttpUtil.post(context, FieldUtil.Link_API + "/GoodsPicture/Saves",
-				object, "application/json", responseHandler);
 	}
 
-	public static void UpdatePic(Context context, byte[] pic, String schoolid,
+	public static void UpdatePic(Context context, File pic, String schoolid,
 			String userid, ResponseHandlerInterface responseHandler)
 			throws JSONException, UnsupportedEncodingException {
-		JSONObject object = new JSONObject();
-		object.put("File", pic);
-		object.put("SchoolId", schoolid);
-		object.put("UserId", userid);
-		object.put("Extensions", "3");
-		HttpUtil.post(context, FieldUtil.Link_API + "/GoodsPicture/Save",
-				object, "multipart/form-data", responseHandler);
-		Log.e("@@@@","sada111111");
+		try {
+			JSONObject object = new JSONObject();
+			FileInputStream fileInput = new FileInputStream(pic);
+			ByteArrayOutputStream bos = new ByteArrayOutputStream(1000);
+			byte[] b = new byte[1000];
+			int n;
+			while ((n = fileInput.read(b)) != -1) {
+				bos.write(b, 0, n);
+			}
+			String file = new String(Base64.encode(bos.toByteArray(), 0));
+			object.put("File", file);
+			object.put("SchoolId", schoolid);
+			object.put("UserId", userid);
+			object.put("Extensions", "jpg"); // 文件扩展名
+
+			fileInput.close();
+			bos.close();
+
+			HttpUtil.post(context, FieldUtil.Link_API + "/GoodsPicture/Save",
+					object, "application/json", responseHandler);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }
