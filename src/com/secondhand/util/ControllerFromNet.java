@@ -1,17 +1,14 @@
 package com.secondhand.util;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.http.Header;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -20,6 +17,7 @@ import android.util.Base64;
 import android.util.Log;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.loopj.android.http.ResponseHandlerInterface;
 
@@ -115,34 +113,10 @@ public class ControllerFromNet {
 			ResponseHandlerInterface responseHandler) throws JSONException,
 			UnsupportedEncodingException {
 		try {
-			List<JSONObject> jsonList = new ArrayList<JSONObject>();
 			for (String filePath : list) {
 				File file = new File(filePath);
-				JSONObject jsonObject = new JSONObject();
-				FileInputStream fileInput = new FileInputStream(file);
-				ByteArrayOutputStream bos = new ByteArrayOutputStream(1000);
-				byte[] b = new byte[1000];
-				int n;
-				while ((n = fileInput.read(b)) != -1) {
-					bos.write(b, 0, n);
-				}
-				String str = new String(Base64.encode(bos.toByteArray(), 0));
-				jsonObject.put("Files", str);
-				jsonObject.put("SchoolId", schoolid);
-				jsonObject.put("UserId", userid);
-				jsonObject.put("Extensions", "jpg"); // 文件扩展名
-
-				jsonList.add(jsonObject);
-
-				fileInput.close();
-				bos.close();
+				UpdatePic(context, file, schoolid, userid, responseHandler);
 			}
-			JSONArray array = new JSONArray(jsonList);
-
-			HttpUtil.post(context, FieldUtil.Link_API + "/GoodsPicture/Saves",
-					array, "application/json", responseHandler);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -176,5 +150,27 @@ public class ControllerFromNet {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public static void dealCreate(Context context, JSONObject object,
+			ResponseHandlerInterface responseHandler) {
+		try {
+			Log.e("@@@@", object.toString());
+			HttpUtil.post(context, FieldUtil.Link_API + "/DealInfo/Create",
+					object, "application/json", responseHandler);
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	// deal type 货物的分类信息
+	public static void getDealType(JsonHttpResponseHandler responseHandler) {
+		HttpUtil.get(FieldUtil.Link_API + "/ConstData/GetDealTypeConstData",
+				responseHandler);
+	}
+
+	public static void getAllDealInfo(JsonHttpResponseHandler responseHandler) {
+		HttpUtil.get(FieldUtil.Link_API + "/DealInfo/GetAll", responseHandler);
 	}
 }
