@@ -50,7 +50,9 @@ public class HomeActivity extends FragmentActivity implements OnClickListener {
 
 	private void setFragmentContent(int index) {
 		mTransaction = mFragmentManager.beginTransaction();
-		hideAllFragment(mTransaction);
+		if (index != 2) {			
+			hideAllFragment(mTransaction);
+		}
 		switch (index) {
 		case 1:
 			if (mClassify == null) {
