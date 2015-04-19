@@ -79,5 +79,15 @@
     <string name="register_login">直接登入</string>
     <string name="register_new">注册新用户</string>
     <string name="register_title">注册</string>
-
+    <string name="detail_return">返回</string>
+    <string name="detail_share">分享</string>
+    <string name="detail_buy_now">立即购买</string>
+    <string name="detail_title">详细页</string>
+    <string name="detail_sell_price">出售价</string>
+    <string name="detail_old_price">原价</string>
+    <string name="detail_browser_times">浏览次数</string>
+    <string name="detail_deal_place">交易地点</string>
+    <string name="detail_deal_info">交易详情</string>
+    <string name="detail_message">留言</string>
+    <string name="detail_please_input">请输入</string>
 </resources>

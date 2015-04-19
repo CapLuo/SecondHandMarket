@@ -155,7 +155,6 @@ public class ControllerFromNet {
 	public static void dealCreate(Context context, JSONObject object,
 			ResponseHandlerInterface responseHandler) {
 		try {
-			Log.e("@@@@", object.toString());
 			HttpUtil.post(context, FieldUtil.Link_API + "/DealInfo/Create",
 					object, "application/json", responseHandler);
 		} catch (UnsupportedEncodingException e) {
@@ -170,7 +169,42 @@ public class ControllerFromNet {
 				responseHandler);
 	}
 
-	public static void getAllDealInfo(JsonHttpResponseHandler responseHandler) {
-		HttpUtil.get(FieldUtil.Link_API + "/DealInfo/GetAll", responseHandler);
+	public static void getAllDealInfo(int schoolid, int index, int size,
+			JsonHttpResponseHandler responseHandler) {
+		RequestParams params = new RequestParams();
+		params.put("shcoolId", schoolid);
+		params.put("index", index);
+		params.put("size", size);
+		HttpUtil.get(
+				FieldUtil.Link_API + "/DealInfo/GetDealDetailListViewData",
+				params, responseHandler);
+	}
+
+	public static void getDealdetails(int dealinfoId,
+			JsonHttpResponseHandler responseHandler) {
+		RequestParams params = new RequestParams();
+		params.put("dealinfoId", dealinfoId);
+		HttpUtil.get(FieldUtil.Link_API + "/DealInfo/Get", params,
+				responseHandler);
+	}
+
+	public static void getAllUserDeal(int loginId, int index, int size,
+			JsonHttpResponseHandler responseHandler) {
+		RequestParams params = new RequestParams();
+		params.put("loginId", loginId);
+		params.put("index", index);
+		params.put("size", size);
+		HttpUtil.get(FieldUtil.Link_API + "/DealInfo/GetAllDealInfoByLoginId",
+				responseHandler);
+	}
+
+	public static void getDealBySearch(String keyword, int index, int size,
+			JsonHttpResponseHandler responseHandler) {
+		RequestParams params = new RequestParams();
+		params.put("keyword", keyword);
+		params.put("index", index);
+		params.put("size", size);
+		HttpUtil.get(FieldUtil.Link_API + "/DealInfo/GetGoodsDealByKeyword",
+				params, responseHandler);
 	}
 }
