@@ -33,31 +33,33 @@
             android:src="@drawable/arrow_down" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="@dimen/home_title_marginTop"
         android:layout_marginLeft="@dimen/home_title_marginLeft"
         android:layout_marginRight="@dimen/home_title_marginLeft"
         android:layout_marginTop="@dimen/home_title_marginTop"
-        android:background="@drawable/home_title_layout"
-        android:orientation="horizontal" >
+        android:background="@drawable/home_title_layout" >
 
         <ImageView
+            android:id="@+id/home_title_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
             android:contentDescription="@drawable/search_icon"
             android:src="@drawable/search_icon" />
 
         <EditText
             android:id="@+id/home_school_seach_edit"
-            android:layout_width="@dimen/home_title_exit_length"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/home_title_marginLeft"
+            android:layout_toLeftOf="@id/home_title_search"
             android:background="@android:color/transparent"
             android:hint="@string/title_bar_search" />
-    </LinearLayout>
+    </RelativeLayout>
 
 </LinearLayout>

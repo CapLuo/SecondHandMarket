@@ -7,10 +7,41 @@
         android:id="@+id/home_title_bar"
         layout="@layout/home_titlebar" />
 
-    <com.secondhand.view.FixGridView
-        android:id="@+id/home_goods_gridview"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
-    </com.secondhand.view.FixGridView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/home_image_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/home_image_viewpage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <com.secondhand.view.CirclePageIndicator
+                    android:id="@+id/home_image_indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="@dimen/home_indicator_margin_bottom"
+                    android:layout_marginRight="@dimen/home_indicator_margin_right" />
+            </RelativeLayout>
+
+            <com.secondhand.view.FixGridView
+                android:id="@+id/home_goods_gridview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+            </com.secondhand.view.FixGridView>
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>

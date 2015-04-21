@@ -9,6 +9,8 @@
     <dimen name="home_title_marginLeft">10dp</dimen>
     <dimen name="home_title_exit_length">320dp</dimen>
     <dimen name="home_title_show_line_top">2dp</dimen>
+    <dimen name="home_indicator_margin_bottom">5dp</dimen>
+    <dimen name="home_indicator_margin_right">10dp</dimen>
 
     <!-- classify page -->
     <dimen name="classify_line_height">2dp</dimen>
