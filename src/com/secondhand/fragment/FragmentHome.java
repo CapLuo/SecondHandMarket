@@ -1,7 +1,10 @@
 package com.secondhand.fragment;
 
+import java.util.ArrayList;
+
 import org.apache.http.Header;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.content.Intent;
@@ -17,9 +20,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
+import com.secondhand.adapter.AdapterHomeGoods;
+import com.secondhand.data.GoodDealInfo;
 import com.secondhand.market.GoodDetailsActivity;
 import com.secondhand.market.R;
 import com.secondhand.util.ControllerFromNet;
+import com.secondhand.util.FieldUtil;
 import com.secondhand.view.CirclePageIndicator;
 import com.secondhand.view.FixGridView;
 
@@ -36,6 +42,7 @@ public class FragmentHome extends Fragment implements OnClickListener {
 	private View mSearchView;
 
 	private FixGridView mGridView;
+	private AdapterHomeGoods mAdapterGoods;
 	private ViewPager mViewPage;
 	private CirclePageIndicator mPageIndicator;
 
@@ -64,11 +71,13 @@ public class FragmentHome extends Fragment implements OnClickListener {
 		mSchoolName = (TextView) mTitleBar.findViewById(R.id.home_school_name);
 		mSchoolSearch = (EditText) mTitleBar
 				.findViewById(R.id.home_school_seach_edit);
-		mSearchView = (EditText) mTitleBar.findViewById(R.id.home_title_search);
+		mSearchView = (EditText) mTitleBar
+				.findViewById(R.id.home_school_seach_edit);
 		mSearchView.setOnClickListener(this);
 
 		mGridView = (FixGridView) mContentView
 				.findViewById(R.id.home_goods_gridview);
+		mAdapterGoods = new AdapterHomeGoods(getActivity());
 		mViewPage = (ViewPager) mContentView
 				.findViewById(R.id.home_image_viewpage);
 		mPageIndicator = (CirclePageIndicator) mContentView
@@ -83,6 +92,22 @@ public class FragmentHome extends Fragment implements OnClickListener {
 			public void onSuccess(int statusCode, Header[] headers,
 					JSONArray response) {
 				Log.e("@@@@", "success array");
+				try {
+					ArrayList<GoodDealInfo> infos = new ArrayList<GoodDealInfo>();
+					for (int i = 0; i < response.length(); i++) {
+						JSONObject object = response.getJSONObject(i);
+						GoodDealInfo info = GoodDealInfo.parmsDealInfo(object);
+						if (info != null) {
+							infos.add(info);
+						}
+					}
+					if (infos.size() > 0) {
+						mAdapterGoods.notifyListChange(infos);
+					}
+					mGridView.setAdapter(mAdapterGoods);
+				} catch (JSONException e) {
+					Log.e(FieldUtil.TAG, e.getMessage());
+				}
 			}
 
 			@Override
@@ -112,7 +137,7 @@ public class FragmentHome extends Fragment implements OnClickListener {
 			@Override
 			public void onFailure(int statusCode, Header[] headers,
 					Throwable throwable, JSONObject errorResponse) {
-				Log.e("@@@@", "faile object");
+				Log.e("@@@@", "faile object " + throwable.getMessage());
 			}
 
 		});
